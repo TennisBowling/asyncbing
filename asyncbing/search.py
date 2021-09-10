@@ -7,7 +7,7 @@ from .bingresponse import BingResponse
 class Search:
     """The searching part of asyncbing"""
 
-    def __init__(self, auth: str, session: aiohttp.ClientSession = None):
+    def __init__(self, auth: str, session: aiohttp.ClientSession=None):
         self.headers = {'Ocp-Apim-Subscription-Key': auth}
         self.bing = 'https://api.bing.microsoft.com/v7.0/search'
         if not session:
