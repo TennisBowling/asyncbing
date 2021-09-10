@@ -33,6 +33,12 @@ class BingResponse:
     @property
     def getThree(self) -> Tuple[BingSearchResult, BingSearchResult, BingSearchResult]:
         """Gets the top three search results and returns a tuple of BingSearchResult"""
-        if not len(self.data['webPages']['value']) >= 1:
+        if not len(self.data['webPages']['value']) >= 3:
             raise NotEnoughResults("There weren't enough search results to give a BingSearchResult.")
         return (BingSearchResult(self.data['webPages']['value'][0]), BingSearchResult(self.data['webPages']['value'][1]), BingSearchResult(self.data['webPages']['value'][2]))
+    
+    def getMany(self, amount: int) -> Tuple[BingSearchResult]:
+        """Returns x amount of search urls based on the int for ammount passed into the function."""
+        if not len(self.data['webPages']['value']) >= amount:
+            raise NotEnoughResults("There weren't enough search results to give a BingSearchResult for the specified amount.")
+        return ([BingSearchResult(self.data['webPages']['value'][x]) for x in range(1, amount)])
