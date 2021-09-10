@@ -1,6 +1,6 @@
 from .exceptions import NotEnoughResults
 from typing import Tuple
-from .Searchresult import BingSearchResult
+from .searchresult import BingSearchResult
 
 
 class BingResponse:
