@@ -1,6 +1,5 @@
 import asyncio
 import aiohttp
-from .exceptions import BadAuth
 from .bingresponse import BingResponse
 
 

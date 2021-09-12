@@ -9,6 +9,7 @@ setup(
     url='https://github.com/TennisBowling/asyncbing',
     license='LICENSE.md',
     description='A api wrapper for the bing search api.',
+    long_description_content_type='text/markdown',
     long_description=open('README.md').read(),
     install_requires=[
         'aiohttp',
