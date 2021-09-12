@@ -1,6 +1,6 @@
 import asyncio
 import aiohttp
-from .bingresponse import BingResponse
+from bingresponse import BingResponse
 
 
 class Search:

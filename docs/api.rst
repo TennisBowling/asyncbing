@@ -1,23 +1,27 @@
+.. currentmodule:: asyncbing
 asyncbing API reference
 =======================
 
-.. automodule:: asyncbing.search
+|
+
+.. automodule:: search
    :members:
 
+|
 
-
-.. automodule:: asyncbing.bingresponse
+.. automodule:: bingresponse
    :members:
 
-
+|
 A searchresult represents a search result response from bing.
 
-.. automodule:: asyncbing.searchresult
+.. automodule:: searchresult
    :members:
 
+|
 All asyncbing responses are here:
 
-.. automodule:: asyncbing.exceptions
+.. automodule:: exceptions
    :members:
 
 

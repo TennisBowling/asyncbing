@@ -13,12 +13,13 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath('..'))
+sys.path.insert(0, os.path.abspath('../asyncbing'))
 
 
 # -- Project information -----------------------------------------------------
 
 project = 'asyncbing'
-copyright = '2021, TennisBowling'
+copyright = '2021-present, TennisBowling'
 author = 'TennisBowling'
 
 #import sphinx_readable_theme
@@ -31,6 +32,8 @@ author = 'TennisBowling'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = ['sphinx.ext.autodoc', 'sphinx.ext.coverage', 'sphinx.ext.napoleon']
+html_logo = './R.jfif'
+html_favicon = './R.jfif'
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
