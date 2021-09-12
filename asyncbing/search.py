@@ -19,11 +19,13 @@ class Search:
             return session
 
     async def fetch(self, search: str) -> BingResponse:
-        """Searches with the bing api for the search string provided, with the global market set."""
+        """|coro|
+        Searches with the bing api for the search string provided, with the global market set."""
         async with self.session.get(self.bing, headers=self.headers, params={'q': search}) as resp:
             return BingResponse((await resp.json()))
 
     # "alias"
     async def search(self, *args, **kwargs) -> fetch:
-        """An alias for Search.fetch()"""
+        """|coro|
+        An alias for Search.fetch()"""
         return await self.fetch(*args, **kwargs)

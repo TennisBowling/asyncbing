@@ -21,6 +21,9 @@ project = 'asyncbing'
 copyright = '2021, TennisBowling'
 author = 'TennisBowling'
 
+#import sphinx_readable_theme
+#html_theme = 'readable'
+#html_theme_path = [sphinx_readable_theme.get_html_theme_path()]
 
 # -- General configuration ---------------------------------------------------
 
@@ -43,7 +46,14 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
+import sphinx_readable_theme
+html_theme = 'readable'
+html_theme_path = [sphinx_readable_theme.get_html_theme_path()]
+rst_prolog = """
+.. |coro| replace:: This function is a |coroutine_link|_.
+.. |coroutine_link| replace:: *coroutine*
+.. _coroutine_link: https://docs.python.org/3/library/asyncio-task.html#coroutine
+"""
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
