@@ -18,10 +18,10 @@ Then initialize asyncbing with your Bing Search Api key [guide](https://docs.mic
 
 ## Sample usage
 ```
-from asyncbing import search
+import asyncbing
 import asyncio
 
-s = search.Search('key')
+s = asyncbing.Search('key')
 
 async def main():
     resp = await s.fetch('cool search term')
