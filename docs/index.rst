@@ -1,28 +1,9 @@
-Welcome to asyncbing's documentation!
-=====================================
+Welcome to asyncbing.
+=====================
 
-.. automodule:: asyncbing.search
-   :members:
+asyncbing is a asyncio wrapper for the `Bing Search API`_.
+It uses a modern ``async``\/``await`` syntax and properties to get data you need with ease.
 
-.. automodule:: asyncbing.bingresponse
-   :members:
+.. _Bing Search API: https://www.microsoft.com/en-us/bing/apis/bing-web-search-api
 
-.. automodule:: asyncbing.searchresult
-   :members:
-
-.. automodule:: asyncbing.exceptions
-   :members:
-
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+:doc:`api`

@@ -4,7 +4,8 @@ from .searchresult import BingSearchResult
 
 
 class BingResponse:
-    """Represents a Bing Response (not a search result response)"""
+    """Represents a Bing Response (not a search result response)\n
+    **DO NOT MANUALLY INITIALIZE THIS CLASS**"""
     def __init__(self, data):
         self.data = data
         self.resulNum = 0
@@ -24,14 +25,12 @@ class BingResponse:
         """Returns the bing search url you would get if you were to type in the query in the bing website directly."""
         return self.data['webPages']['webSearchUrl']
 
-    @property
     def getOne(self) -> BingSearchResult:
         """Gets the top search result and returns a BingSearchResult."""
         if not len(self.data['webPages']['value']) >= 1:
             raise NotEnoughResults("There weren't enough search results to give a BingSearchResult.")
         return BingSearchResult((self.data['webPages']['value'][0]))
 
-    @property
     def getThree(self) -> Tuple[BingSearchResult, BingSearchResult, BingSearchResult]:
         """Gets the top three search results and returns a tuple of BingSearchResult"""
         if not len(self.data['webPages']['value']) >= 3:

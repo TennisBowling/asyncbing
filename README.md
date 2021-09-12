@@ -26,7 +26,7 @@ s = search.Search('key')
 async def main():
     resp = await s.fetch('cool search term')
     print(resp.matches)
-    oneresult = resp.getOne
+    oneresult = resp.getOne()
     print(oneresult.name)
     print(oneresult.url)
     print(oneresult.snippet)
