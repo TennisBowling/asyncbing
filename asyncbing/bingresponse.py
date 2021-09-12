@@ -4,6 +4,7 @@ from .searchresult import BingSearchResult
 
 
 class BingResponse:
+    """Represents a Bing Response (not a search result response)"""
     def __init__(self, data):
         self.data = data
         self.resulNum = 0
