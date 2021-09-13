@@ -1,6 +1,7 @@
 class BingSearchResult:
-    """Represents a Bing Search Result (like url, snippet, name, etc)\n
-    **DO NOT MANUALLY INITIALIZE THIS CLASS**"""
+    """Represents a Bing Search Result (like url, snippet, name, etc)
+    .. note::
+        You must not manually initialize this!"""
     def __init__(self, data):
         self.data = data
     

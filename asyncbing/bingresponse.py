@@ -3,8 +3,9 @@ from typing import Tuple
 from searchresult import BingSearchResult
 
 class BingResponse:
-    """Represents a Bing Response (not a search result response)\n
-    **DO NOT MANUALLY INITIALIZE THIS CLASS**"""
+    """Represents a Bing Response (not a search result response)
+    .. note::
+        You must not manually initialize this!"""
     def __init__(self, data):
         self.data = data
         self.resulNum = 0
@@ -25,19 +26,19 @@ class BingResponse:
         return self.data['webPages']['webSearchUrl']
 
     def getOne(self) -> BingSearchResult:
-        """Gets the top search result and returns a BingSearchResult."""
+        """Gets the top search result and returns a :class:`BingSearchResult`."""
         if not len(self.data['webPages']['value']) >= 1:
             raise NotEnoughResults("There weren't enough search results to give a BingSearchResult.")
         return BingSearchResult((self.data['webPages']['value'][0]))
 
     def getThree(self) -> Tuple[BingSearchResult, BingSearchResult, BingSearchResult]:
-        """Gets the top three search results and returns a tuple of BingSearchResult"""
+        """Gets the top three search results and returns a tuple of :class:`BingSearchResult`:"""
         if not len(self.data['webPages']['value']) >= 3:
             raise NotEnoughResults("There weren't enough search results to give a BingSearchResult.")
         return (BingSearchResult(self.data['webPages']['value'][0]), BingSearchResult(self.data['webPages']['value'][1]), BingSearchResult(self.data['webPages']['value'][2]))
     
-    def getMany(self, amount: int) -> Tuple[BingSearchResult]:
-        """Returns x amount of search urls based on the int for ammount passed into the function."""
+    def getMany(self, amount: int, *, start: int=0) -> Tuple[BingSearchResult]:
+        """Returns as many :class:`asyncbing.BingSearchResult`: as you want as the max defined by the int passed into the function. has an optional ``start`` kwarg. Defaults to 0."""
         if not len(self.data['webPages']['value']) >= amount:
             raise NotEnoughResults("There weren't enough search results to give a BingSearchResult for the specified amount.")
-        return ([BingSearchResult(self.data['webPages']['value'][x]) for x in range(1, amount)])
+        return ([BingSearchResult(self.data['webPages']['value'][x]) for x in range(start, amount)])
