@@ -13,7 +13,7 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath('..'))
-sys.path.insert(0, os.path.abspath('../asyncbing'))
+#sys.path.insert(0, os.path.abspath('../asyncbing'))
 
 
 # -- Project information -----------------------------------------------------
@@ -34,6 +34,7 @@ author = 'TennisBowling'
 extensions = ['sphinx.ext.autodoc', 'sphinx.ext.coverage', 'sphinx.ext.napoleon']
 html_logo = './R.jfif'
 html_favicon = './R.jfif'
+#add_module_names = False
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

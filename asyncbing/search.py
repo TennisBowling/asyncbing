@@ -2,7 +2,6 @@ import asyncio
 import aiohttp
 from bingresponse import BingResponse
 
-
 class Search:
     """The searching part of asyncbing"""
 

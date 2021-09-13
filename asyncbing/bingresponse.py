@@ -2,7 +2,6 @@ from exceptions import NotEnoughResults
 from typing import Tuple
 from searchresult import BingSearchResult
 
-
 class BingResponse:
     """Represents a Bing Response (not a search result response)\n
     **DO NOT MANUALLY INITIALIZE THIS CLASS**"""
