@@ -32,13 +32,13 @@ class BingResponse:
         return BingSearchResult((self.data['webPages']['value'][0]))
 
     def getThree(self) -> Tuple[BingSearchResult, BingSearchResult, BingSearchResult]:
-        """Gets the top three search results and returns a tuple of :class:`BingSearchResult`:"""
+        """Gets the top three search results and returns a tuple of :class:`BingSearchResult`"""
         if not len(self.data['webPages']['value']) >= 3:
             raise NotEnoughResults("There weren't enough search results to give a BingSearchResult.")
         return (BingSearchResult(self.data['webPages']['value'][0]), BingSearchResult(self.data['webPages']['value'][1]), BingSearchResult(self.data['webPages']['value'][2]))
     
     def getMany(self, amount: int, *, start: int=0) -> Tuple[BingSearchResult]:
-        """Returns as many :class:`asyncbing.BingSearchResult`: as you want as the max defined by the int passed into the function. has an optional ``start`` kwarg. Defaults to 0."""
+        """Returns as many :class:`asyncbing.BingSearchResult` as you want as the max defined by the int passed into the function. has an optional ``start`` kwarg. Defaults to 0."""
         if not len(self.data['webPages']['value']) >= amount:
             raise NotEnoughResults("There weren't enough search results to give a BingSearchResult for the specified amount.")
         return ([BingSearchResult(self.data['webPages']['value'][x]) for x in range(start, amount)])
