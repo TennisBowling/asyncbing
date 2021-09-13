@@ -1,32 +1,33 @@
+.. module:: asyncbing
+
 asyncbing API reference
 =======================
 
 |
-
-.. autoclass:: search.Search
+.. autoclass:: asyncbing.Search
     :members:
 
 |
 
-.. autoclass:: bingresponse.BingResponse
+.. autoclass:: asyncbing.BingResponse
     :members:
 
 |
 A searchresult represents a search result response from bing.
 
-.. autoclass:: searchresult.BingSearchResult
+.. autoclass:: asyncbing.BingSearchResult
     :members:
 
 |
 All asyncbing responses are here:
 
-.. autoclass:: exceptions.BingException
+.. autoclass:: asyncbing.BingException
     :members:
 
-.. autoclass:: exceptions.BadAuth
+.. autoclass:: asyncbing.BadAuth
     :members:
 
-.. autoclass:: exceptions.NotEnoughResults
+.. autoclass:: asyncbing.NotEnoughResults
     :members:
 
 .. toctree::
