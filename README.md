@@ -1,6 +1,6 @@
 # AsyncBing
-asyncbing is an asyncio api wrapper for the [Bing Search Api](https://www.microsoft.com/en-us/bing/apis/bing-web-search-api). It uses a modern `async`/`await` python api.
-[docs](https://asyncbing.readthedocs.io/en/latest/)
+asyncbing is an asyncio api wrapper for the [Bing Search Api](https://www.microsoft.com/en-us/bing/apis/bing-web-search-api). It uses a modern `async`/`await` python api. \
+[Docs](https://asyncbing.readthedocs.io/en/latest/)
 
 ## Installing
 
