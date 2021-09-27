@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='asyncbing',
-    version='1.0.1',
+    version='1.0.4',
     author='TennisBowling',
     author_email='tennisbowling@tennisbowling.com',
     packages=['asyncbing'],

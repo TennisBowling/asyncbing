@@ -1,4 +1,4 @@
-class BingSearchResult:
+class SearchResult:
     """Represents a Bing Search Result (like url, snippet, name, etc)
     ```{caution}
     You must not manually initialize this!
