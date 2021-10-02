@@ -14,6 +14,10 @@ class Translate:
         else:
             self.region = region
 
+        if session:
+            self.session = session
+        else:
+            self.session = aiohttp.ClientSession() # find a way to make this async
     
     async def translate(self, query: str, *, tolang: str='en', fromlang: str=None):
         """|coro|
@@ -27,9 +31,6 @@ class Translate:
             return TranslateResponse((await resp.json()))
         
     async def __aenter__(self):
-        if not hasattr(self, 'session'):
-            async with aiohttp.ClientSession() as session:
-                self.session = session
         return self
 
     async def __aexit__(self, *args):

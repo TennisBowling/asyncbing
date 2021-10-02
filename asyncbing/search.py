@@ -7,6 +7,11 @@ class Search:
         self.headers = {'Ocp-Apim-Subscription-Key': auth}
         self.bing = 'https://api.bing.microsoft.com/v7.0/search'
 
+        if session:
+            self.session = session
+        else:
+            self.session = aiohttp.ClientSession() # find a way to make this async
+
     async def fetch(self, search: str) -> SearchResponse:
         """|coro|
         Searches with the bing api for the search string provided, with the global market set."""
@@ -20,9 +25,6 @@ class Search:
         return await self.fetch(*args, **kwargs)
     
     async def __aenter__(self):
-        if not hasattr(self, 'session'):
-            async with aiohttp.ClientSession() as session:
-                self.session = session
         return self
 
     async def __aexit__(self, *args):
