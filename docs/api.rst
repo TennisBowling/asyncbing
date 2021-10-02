@@ -3,23 +3,44 @@
 asyncbing API reference
 =======================
 
+
+Searching
+=========
+
 |
 .. autoclass:: asyncbing.Search
     :members:
 
 |
 
-.. autoclass:: asyncbing.BingResponse
+.. autoclass:: asyncbing.SearchResponse
     :members:
 
 |
-A searchresult represents a search result response from bing.
+A searchresult represents a search result response from bing (you get it from :class:`asyncbing.SearchResponse`).
 
-.. autoclass:: asyncbing.BingSearchResult
+.. autoclass:: asyncbing.SearchResult
     :members:
 
 |
-All asyncbing responses are here:
+
+Translating
+===========
+
+|
+.. autoclass:: asyncbing.Translate
+    :members:
+
+|
+
+.. autoclass: asyncbing.TranslateResponse
+    :members:
+
+
+|
+
+Exceptions
+==========
 
 .. autoclass:: asyncbing.BingException
     :members:

@@ -18,19 +18,38 @@ Then initialize asyncbing with your Bing Search Api key [guide](https://docs.mic
 
 
 ## Sample usage
+Searching
 ```
 import asyncbing
 import asyncio
 
-s = asyncbing.Search('key')
-
 async def main():
-    resp = await s.fetch('cool search term')
-    print(resp.matches)
-    oneresult = resp.getOne()
-    print(oneresult.name)
-    print(oneresult.url)
-    print(oneresult.snippet)
+    async with asyncbing.Search('key') as s:
+        resp = await s.fetch('cool search term')
+        print(resp.matches)
+        oneresult = resp.getOne()
+        print(oneresult.name)
+        print(oneresult.url)
+        print(oneresult.snippet)
 
 asyncio.run(main())
 ```
+Translating
+
+```
+import asyncbing
+import asyncio
+
+async def main():
+    async with asyncbing.Translate('key', region='useast') as t:
+        resp = await t.translate('je veux traduire')
+        print(resp.detected_language)
+        print(resp.translated_output)
+        print(resp.translated_language)
+
+asyncio.run(main())
+```
+
+
+
+(Normally, searching isn't part of the Bing Api's. It's part of the Microsoft Cognitive Api's. Might as well rename this to asyncms, or asyncmsapi, no?)

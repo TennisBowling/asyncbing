@@ -57,7 +57,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 #html_theme_path = [sphinx_readable_theme.get_html_theme_path()]
 html_theme = 'furo'
 rst_prolog = """
-.. |coro| replace:: This function is a |coroutine_link|_.
+.. |coro| replace:: This function is a |coroutine_link|_.\n
 .. |coroutine_link| replace:: *coroutine*
 .. _coroutine_link: https://docs.python.org/3/library/asyncio-task.html#coroutine
 """
