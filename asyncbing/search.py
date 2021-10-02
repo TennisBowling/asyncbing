@@ -1,22 +1,11 @@
 import aiohttp
-from searchresponse import SearchResponse
+from .searchresponse import SearchResponse
 
 class Search:
     """The searching part of asyncbing"""
-    async def __aenter__(self, auth: str, *, session: aiohttp.ClientSession=None):
-        """Takes a `auth` token, as well as an optional aiohttp session.
-        example:
-        ``
-        async with asyncbing.Search('AUTHTOKEN') as searching:
-            await searching.fetch...
-        ``"""
+    def __init__(self, auth: str, *, session: aiohttp.ClientSession=None):
         self.headers = {'Ocp-Apim-Subscription-Key': auth}
         self.bing = 'https://api.bing.microsoft.com/v7.0/search'
-        if not session:
-            async with aiohttp.ClientSession() as session:
-                self.session = session
-        else:
-            self.session = session
 
     async def fetch(self, search: str) -> SearchResponse:
         """|coro|
@@ -29,3 +18,21 @@ class Search:
         """|coro|
         An alias for Search.fetch()"""
         return await self.fetch(*args, **kwargs)
+    
+    async def __aenter__(self):
+        if not hasattr(self, 'session'):
+            async with aiohttp.ClientSession() as session:
+                self.session = session
+        return self
+
+    async def __aexit__(self, *args):
+        pass
+
+def search(auth: str, *, session: aiohttp.ClientSession=None):
+    """Takes a `auth` token, as well as an optional aiohttp session.
+        example:
+        ``
+        async with asyncbing.Search('AUTHTOKEN') as searching:
+            await searching.fetch...
+        ``"""
+    return Search(auth, session=session)

@@ -1,18 +1,10 @@
-import asyncio
 import uuid
 import aiohttp
-from translateresponse import TranslateResponse
+from .translateresponse import TranslateResponse
 
 class Translate:
     """The translating part of asyncbing"""
-    async def __aenter__(self, auth: str, *, region: str=None, session: aiohttp.ClientSession=None):
-        """Takes a `auth` token, as well as an optional aiohttp session.
-        example:
-        ``
-        async with asyncbing.Translate('AUTHTOKEN', region='eastus') as translating:
-            await translating.translate...
-        ``
-        """
+    def __init__(self, auth: str, *, region: str=None, session: aiohttp.ClientSession=None):
         self.auth = auth
         self.bing = 'https://api.cognitive.microsofttranslator.com/translate'
         if not region:
@@ -21,12 +13,7 @@ class Translate:
             self.region = 'centralus'
         else:
             self.region = region
-        
-        if not session:
-            async with aiohttp.ClientSession() as session:
-                self.session = session
-        else:
-            self.session = session
+
     
     async def translate(self, query: str, *, tolang: str='en', fromlang: str=None):
         """|coro|
@@ -39,4 +26,21 @@ class Translate:
         async with self.session.post(self.bing, params=params, headers={'Ocp-Apim-Subscription-Key': self.auth, 'Ocp-Apim-Subscription-Region': self.region, 'Content-type': 'application/json', 'X-ClientTraceId': str(uuid.uuid4())}, json=[{'text': query}]) as resp:
             return TranslateResponse((await resp.json()))
         
-    
+    async def __aenter__(self):
+        if not hasattr(self, 'session'):
+            async with aiohttp.ClientSession() as session:
+                self.session = session
+        return self
+
+    async def __aexit__(self, *args):
+        pass
+
+def translate(auth: str, *, region: str=None, session: aiohttp.ClientSession=None) -> Translate:
+    """Takes a `auth` token, as well as an optional aiohttp session.
+    example:
+    ``
+    async with asyncbing.Translate('AUTHTOKEN', region='eastus') as translating:
+        await translating.translate...
+    ``
+    """
+    return Translate(auth, region=region, session=session)

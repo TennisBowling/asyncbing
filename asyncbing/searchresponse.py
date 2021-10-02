@@ -1,6 +1,6 @@
-from exceptions import NotEnoughResults
+from .exceptions import NotEnoughResults
 from typing import Tuple
-from searchresult import SearchResult
+from .searchresult import SearchResult
 
 class SearchResponse:
     """Represents a Bing Response (not a search result response)

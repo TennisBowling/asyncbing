@@ -24,7 +24,7 @@ import asyncbing
 import asyncio
 
 async def main():
-    async with asyncbing.Search('key') as s:
+    async with asyncbing.tearch('key') as s:
         resp = await s.fetch('cool search term')
         print(resp.matches)
         oneresult = resp.getOne()
@@ -41,7 +41,7 @@ import asyncbing
 import asyncio
 
 async def main():
-    async with asyncbing.Translate('key', region='useast') as t:
+    async with asyncbing.translate('key', region='useast') as t:
         resp = await t.translate('je veux traduire')
         print(resp.detected_language)
         print(resp.translated_output)
