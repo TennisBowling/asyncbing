@@ -19,7 +19,7 @@ class Translate:
         else:
             self.session = aiohttp.ClientSession() # find a way to make this async
     
-    async def translate(self, query: str, *, tolang: str='en', fromlang: str=None):
+    async def translate(self, query: str, *, tolang: str='en', fromlang: str=None) -> TranslateResponse:
         """|coro|
         Translate the given query with an optional `tolang` language to translate to, as well as an optional `fromlang` language to translate from.
         If `tolang` isn't provided, it will auto translate to english. If `fromlang` isn't provided, it will auto translate from autodetect."""
