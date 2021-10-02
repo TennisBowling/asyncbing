@@ -1,4 +1,5 @@
 import aiohttp
+import asyncio
 from .searchresponse import SearchResponse
 
 class Search:
@@ -7,10 +8,10 @@ class Search:
         self.headers = {'Ocp-Apim-Subscription-Key': auth}
         self.bing = 'https://api.bing.microsoft.com/v7.0/search'
 
-        if session:
-            self.session = session
-        else:
-            self.session = aiohttp.ClientSession() # find a way to make this async
+        async def create_session():
+            self.session: aiohttp.ClientSession = session or aiohttp.ClientSession()
+
+        asyncio.get_event_loop().run_until_complete(create_session())
 
     async def fetch(self, search: str) -> SearchResponse:
         """|coro|
