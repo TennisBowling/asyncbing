@@ -3,7 +3,7 @@ import aiohttp
 from .translateresponse import TranslateResponse
 
 class Translate:
-    """The translating part of asyncbing"""
+    """The translating part of asyncbing. If you use this class, you won't be able to use the async with syntax."""
     def __init__(self, auth: str, *, region: str=None, session: aiohttp.ClientSession=None):
         self.auth = auth
         self.bing = 'https://api.cognitive.microsofttranslator.com/translate'
@@ -37,11 +37,12 @@ class Translate:
         pass
 
 def translate(auth: str, *, region: str=None, session: aiohttp.ClientSession=None) -> Translate:
-    """Takes a `auth` token, as well as an optional aiohttp session.
-    example:
-    ``
-    async with asyncbing.Translate('AUTHTOKEN', region='eastus') as translating:
-        await translating.translate...
-    ``
+    """Takes a `auth` token, as well as an optional aiohttp session.\n
+    It is recommended to use this instead of manually initializing :class:`asyncbing.Translate` because you can use the ``async with`` syntax, and it returns :class:`asyncbing.Translate`.\n
+    example:\n
+    .. code-block:: python
+
+      async with asyncbing.Translate('AUTHTOKEN', region='eastus') as translating:
+          await translating.translate...
     """
     return Translate(auth, region=region, session=session)

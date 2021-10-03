@@ -3,13 +3,15 @@ import asyncio
 from .searchresponse import SearchResponse
 
 class Search:
-    """The searching part of asyncbing"""
+    """The searching part of asyncbing.\n
+    If you manually initialize this class, you won't be able to use the async with syntax. It's recommended to use :function:`asyncbing.search`
+    """
     def __init__(self, auth: str, *, session: aiohttp.ClientSession=None):
         self.headers = {'Ocp-Apim-Subscription-Key': auth}
         self.bing = 'https://api.bing.microsoft.com/v7.0/search'
 
         async def create_session():
-            self.session: aiohttp.ClientSession = session or aiohttp.ClientSession()
+            self.session = session or aiohttp.ClientSession()
 
         asyncio.get_event_loop().run_until_complete(create_session())
 
@@ -32,10 +34,12 @@ class Search:
         pass
 
 def search(auth: str, *, session: aiohttp.ClientSession=None):
-    """Takes a `auth` token, as well as an optional aiohttp session.
-        example:
-        ``
-        async with asyncbing.Search('AUTHTOKEN') as searching:
+    """Takes a `auth` token, as well as an optional aiohttp session.\n
+        It is recommended to use this function instead of :class:`asyncbing.Translate` as it returns it, and you can use ``async with`` syntax in it.\n
+        example:\n
+        .. code-block:: python
+        
+          async with asyncbing.Search('AUTHTOKEN') as searching:
             await searching.fetch...
-        ``"""
+        """
     return Search(auth, session=session)

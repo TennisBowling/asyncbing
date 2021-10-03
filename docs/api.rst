@@ -7,6 +7,8 @@ asyncbing API reference
 Searching
 =========
 
+.. autofunction:: asyncbing.search
+
 |
 .. autoclass:: asyncbing.Search
     :members:
@@ -26,6 +28,8 @@ A searchresult represents a search result response from bing (you get it from :c
 
 Translating
 ===========
+
+.. autofunction:: asyncbing.translate
 
 |
 .. autoclass:: asyncbing.Translate
