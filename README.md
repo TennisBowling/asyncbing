@@ -19,7 +19,7 @@ Then initialize asyncbing with your Bing Search Api key [guide](https://docs.mic
 
 ## Sample usage
 Searching
-```
+```python
 import asyncbing
 import asyncio
 
@@ -36,7 +36,7 @@ asyncio.run(main())
 ```
 Translating
 
-```
+```python
 import asyncbing
 import asyncio
 
