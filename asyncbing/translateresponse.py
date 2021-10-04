@@ -2,7 +2,8 @@
 
 class TranslateResponse:
     """The class for the Bing Translate Response.
-    **Please do not manually initialize this!**"""
+    .. warning::
+        You must not manually initialize this!"""
     def __init__(self, data: dict):
         self.data = data[0]
     
