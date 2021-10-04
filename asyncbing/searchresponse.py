@@ -5,9 +5,9 @@ from .searchresult import SearchResult
 class SearchResponse:
     """Represents a Bing Response (not a search result response)
     
-    ```{caution}
-    You must not manually initialize this!
-    ```"""
+    .. warning::
+        You must not manually initialize this!
+    """
     def __init__(self, data):
         self.data = data
         self.resulNum = 0
