@@ -16,16 +16,16 @@ class Search:
         asyncio.get_event_loop().run_until_complete(create_session())
 
     async def fetch(self, search: str) -> SearchResponse:
-        """|coro|
+        """|coro|\n
         Searches with the bing api for the search string provided, with the global market set."""
         async with self.session.get(self.bing, headers=self.headers, params={'q': search}) as resp:
             return SearchResponse((await resp.json()))
 
     # "alias"
-    async def search(self, *args, **kwargs) -> fetch:
-        """|coro|
-        An alias for Search.fetch()"""
-        return await self.fetch(*args, **kwargs)
+    async def search(self, search: str) -> SearchResponse:
+        """|coro|\n
+        An alias for :function:`asyncbing.Search.fetch`"""
+        return await self.fetch(search)
     
     async def __aenter__(self):
         return self
@@ -39,7 +39,7 @@ def search(auth: str, *, session: aiohttp.ClientSession=None):
         example:\n
         .. code-block:: python
         
-          async with asyncbing.Search('AUTHTOKEN') as searching:
+          async with asyncbing.search('AUTHTOKEN') as searching:
             await searching.fetch...
         """
     return Search(auth, session=session)
