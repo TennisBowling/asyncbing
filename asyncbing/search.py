@@ -24,7 +24,7 @@ class Search:
     # "alias"
     async def search(self, search: str) -> SearchResponse:
         """|coro|\n
-        An alias for :function:`asyncbing.Search.fetch`"""
+        An alias for :meth:`asyncbing.Search.fetch`"""
         return await self.fetch(search)
     
     async def __aenter__(self):
