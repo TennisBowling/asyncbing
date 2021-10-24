@@ -44,3 +44,10 @@ class SearchResponse:
         if not len(self.data['webPages']['value']) >= amount:
             raise NotEnoughResults("There weren't enough search results to give a BingSearchResult for the specified amount.")
         return ([SearchResult(self.data['webPages']['value'][x]) for x in range(start, amount)])
+
+    def getNext(self) -> SearchResult:
+        """Gets the next result and returns a :class:`asyncbing.SearchResult`"""
+        if self.resulNum >= len(self.data['webPages']['value']):
+            raise NotEnoughResults("There aren't any more results to give a BingSearchResult.")
+        self.resulNum += 1
+        return SearchResult(self.data['webPages']['value'][self.resulNum])

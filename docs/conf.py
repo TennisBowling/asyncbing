@@ -31,7 +31,7 @@ author = 'TennisBowling'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx.ext.autodoc', 'sphinx.ext.coverage', 'sphinx.ext.napoleon']
+extensions = ['sphinx.ext.autodoc', 'sphinx.ext.coverage', 'sphinx.ext.napoleon', 'sphinx.ext.extlinks', 'sphinx.ext.intersphinx',]
 html_logo = './R.jfif'
 html_favicon = './R.jfif'
 
@@ -61,6 +61,8 @@ rst_prolog = """
 .. |coroutine_link| replace:: *coroutine*
 .. _coroutine_link: https://docs.python.org/3/library/asyncio-task.html#coroutine
 """
+
+intersphinx_mapping = {'py': ('https://docs.python.org/3', None)}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

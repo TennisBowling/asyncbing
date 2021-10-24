@@ -1,3 +1,6 @@
+from datetime import datetime
+
+
 class SearchResult:
     """Represents a Bing Search Result (like url, snippet, name, etc)
     
@@ -33,9 +36,9 @@ class SearchResult:
         return self.data['snippet']
     
     @property
-    def dateLastCrawled(self) -> str:     # TODO: get this as a datatime.datetime
-        """Returns when the page was last crawled by Bing."""
-        return self.data['dateLastCrawled']
+    def dateLastCrawled(self) -> datetime:     
+        """Returns when the page was last crawled by Bing as a :class:`datetime.datetime` object."""
+        return datetime.fromisoformat((self.data['dateLastCrawled'])[:-9])
     
     @property
     def language(self) -> str:
