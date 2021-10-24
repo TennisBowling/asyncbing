@@ -3,7 +3,7 @@ import aiohttp
 from .translateresponse import TranslateResponse
 
 class Translate:
-    """The translating part of asyncbing. If you use this class, you won't be able to use the async with syntax."""
+    """The translating part of asyncbing. If you use this class, you won't be able to use the async with syntax. It's recommended to use :meth:`asyncbing.translate`"""
     def __init__(self, auth: str, *, region: str=None, session: aiohttp.ClientSession=None):
         self.auth = auth
         self.bing = 'https://api.cognitive.microsofttranslator.com/translate'

@@ -4,7 +4,7 @@ from .searchresponse import SearchResponse
 
 class Search:
     """The searching part of asyncbing.\n
-    If you manually initialize this class, you won't be able to use the async with syntax. It's recommended to use :function:`asyncbing.search`
+    If you manually initialize this class, you won't be able to use the async with syntax. It's recommended to use :meth:`asyncbing.search`.
     """
     def __init__(self, auth: str, *, session: aiohttp.ClientSession=None):
         self.headers = {'Ocp-Apim-Subscription-Key': auth}
