@@ -24,7 +24,7 @@ import asyncbing
 import asyncio
 
 async def main():
-    async with asyncbing.tearch('key') as s:
+    async with asyncbing.search('key') as s:
         resp = await s.fetch('cool search term')
         print(resp.matches)
         oneresult = resp.getOne()
