@@ -37,7 +37,7 @@ Translating
 
 |
 
-.. autoclass: asyncbing.TranslateResponse
+.. autoclass:: asyncbing.TranslateResponse
     :members:
 
 
