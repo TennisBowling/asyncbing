@@ -1,20 +1,19 @@
 # AsyncBing
-asyncbing is an asyncio api wrapper for the [Bing Search Api](https://www.microsoft.com/en-us/bing/apis/bing-web-search-api). It uses a modern `async`/`await` python api. \
+asyncbing is an asyncio api wrapper for the [Bing Search Api](https://www.microsoft.com/en-us/bing/apis/bing-web-search-api). It uses a modern `async`/`await` python api.  
 [Docs](https://asyncbing.readthedocs.io/en/latest/)
 
 ## Installing
 
-`python -m pip install asyncbing` \
-For the stable version of asyncbing. \
-`python -m pip install git+https://github.com/TennisBowling/asyncbing/` \
-For the unstable/cutting edge of asyncbing. Not recommended in production. \
+`python -m pip install asyncbing`  
+For the stable version of asyncbing.  
+`python -m pip install git+https://github.com/TennisBowling/asyncbing/`  
+For the unstable/cutting edge of asyncbing. Not recommended in production.  
 
 ## Usage
 
-Import it with \
-`from asyncbing import search` \
-Then initialize asyncbing with your Bing Search Api key [guide](https://docs.microsoft.com/en-us/bing/search-apis/bing-web-search/create-bing-search-service-resource) like
-`s = search.Search('APIKEYGOESHERE')`
+
+Get a Bing Search Api key [guide](https://docs.microsoft.com/en-us/bing/search-apis/bing-web-search/create-bing-search-service-resource)  
+Then replace the key you have with 'key' in the examples
 
 
 ## Sample usage
@@ -49,7 +48,3 @@ async def main():
 
 asyncio.run(main())
 ```
-
-
-
-(Normally, searching isn't part of the Bing Api's. It's part of the Microsoft Cognitive Api's. Might as well rename this to asyncms, or asyncmsapi, no?)
